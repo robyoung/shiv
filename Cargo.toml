@@ -1,0 +1,6 @@
+[package]
+name = "shiv"
+version = "0.1.0"
+authors = ["Rob Young <rob.young@digital.cabinet-office.gov.uk>"]
+
+[dependencies]
