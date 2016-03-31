@@ -58,7 +58,7 @@ def parse_args(in_args):
     args.fields = [
         Range.from_str(field_range)
         for field_range in args.fields.split(',')
-    ]
+    ] if args.fields else None
 
     args.delimiter = parse_delimiter(args.delimiter)
 
@@ -98,7 +98,7 @@ def get_instream(file_paths, delimiter, is_csv, is_tsv):
             instream = (line.split(delimiter) for line in instream)
         elif args.extract:
             def ifmatch(line):
-                match = extract.search(line)
+                match = args.extract.search(line)
                 if match:
                     return match.groups()
             instream = (ifmatch(line) for line in instream)
